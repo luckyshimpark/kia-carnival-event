@@ -43,8 +43,12 @@ function addEvent() {
   termsClickEvent();
 
   $("html").click(function (e) {
-    if ($(e.target).parents(".popup-wrap").length < 1) {
+    if ($(e.target).parents(".popup-wrap").length < 1) {      
       $(".popup").hide();
+
+      if ($(".popup-dim").is(":visible")) {
+        $(".popup-dim").remove();
+      }
     }
   });
 
