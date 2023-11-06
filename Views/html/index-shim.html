@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, height=device-height, maximum-scale=1.0" />
+		<title>카니발 Grand Quiz 이벤트</title>
+		<meta name="title" content="카니발 Grand Quiz 이벤트" />
+		<meta name="keywords" content="Carnival, 카니발, Kia, KA4, Grand, 퀴즈, 이벤트, 기아, 카니발 페이스리프트, 카니발PE" />
+		<meta name="description" content="새로워진 카니발을 예측해보세요, 기아 카니발 Grand Quiz 이벤트" />
+		<meta property="fb:app_id" content="" />
+		<meta property="og:image" content="../../Content/img/og.png" />
+		<meta property="og:url" content="" />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="ko_KR" />
+		<meta property="og:title" content="카니발 Grand Quiz 이벤트" />
+		<meta property="og:description" content="" />
+
+		<link rel="shortcut icon" href="../../Content/img/favicon.ico" type="image/x-icon" />
+		<link rel="icon" href="../../Content/img/favicon.ico" type="image/x-icon" />
+
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> -->
+		<link rel="stylesheet" href="../../Content/css/slick.css" />
+		<link rel="stylesheet" href="../../Content/css/style.css" />
+
+		<script src="../../libs/jquery-2.1.4.min.js"></script>
+		<script src="../../libs/slick-1.6.0.min.js"></script>
+		<script src="../../libs/jQueryRotate.js"></script>
+		<script src="../../libs/TweenMax.min.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.5.9/lottie.min.js"></script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+	</head>
+<style>
+	.page-list h1 { padding: 10px; font-size: 20px; }
+	.page-list li { border-bottom: 1px solid #e3e3e3; }
+	.page-list li:first-child { border-top: 1px solid #e3e3e3; }
+	.page-list a { display: block; padding: 10px; text-decoration: none; background-color: #f8f8f8;}
+	.page-list p { padding: 10px; }
+	.page-list h2{margin-top:30px;padding: 0 10px 10px; font-size: 17px; }
+	.page-list h1+h2{margin-top:0;}
+	.page-list h3{padding: 10px; font-size: 14px; border-top: 1px solid #e3e3e3;background-color: #eee; }
+</style>
+<body>
+	<div class="page-list">
+		<h1>카니발 Grand Quiz 이벤트</h1>
+		<h2>1. 페이지</h2>
+		<ul>
+			<li><a href="00_메인페이지.html" target="_blank"><span>- 메인페이지</span></a></li>
+			<li><a href="01_개인정보취급방침.html" target="_blank"><span>- 개인정보취급방침</span></a></li>
+		</ul>
+
+		<h2>2. 팝업</h2>
+		<ul>
+			<li><a href="javascript:popupOpen('#popupLogin');"><span>- 로그인</span></a></li>
+			<li><a href="javascript:popupOpen('#popupApply');"><span>- 개인정보수집 및 동의</span></a></li>
+			<li><a href="javascript:popupOpen('#popupQuiz1');"><span>- 05_퀴즈_시작안내 모달팝업</span></a></li>
+			<li><a href="javascript:popupOpen('#popupQuiz2');"><span>- 05_퀴즈_중복응모 모달팝업</span></a></li>
+			<li><a href="javascript:popupOpen('#popupQuiz3');"><span>-  05_퀴즈_중복응모 모달팝업(응모완료)</span></a></li>
+			<li><a href="javascript:popupOpen('#popupQuiz4-1');"><span>-  05_퀴즈_퀴즈풀기 모달팝업(선택)</span></a></li>
+			<li><a href="javascript:popupOpen('#popupQuiz4-2');"><span>-  05_퀴즈_퀴즈풀기 모달팝업(응모완료)</span></a></li>
+			<li><a href="javascript:popupOpen('#popupQuiz4-1-fail');"><span>-  05_퀴즈_오답노트 모달팝업</span></a></li>
+			<li><a href="javascript:popupOpen('#popupQuiz4-2-fail');"><span>-  05_퀴즈_오답노트 모달팝업</span></a></li>
+			<li><a href="javascript:popupOpen('#popupWinners');"><span>- 05_퀴즈_당첨발표</span></a></li>
+		</ul>
+	</div>
+
+	<div class="popup" id="popupLogin">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupLogin');" class="popup-close"></a>
+			<div class="popup-title">
+				<strong>로그인</strong>
+			</div>
+	
+			<div class="popup-content">
+				<div class="popup-text">이벤트 응모를 위해 카카오계정으로 로그인 해주세요.</div>
+				<div class="btn-kakao">
+					<a href="javascript:;" >
+						<span class="icon"><img src="../../Content/img/common/icon_kakao.png" alt="" /></span>카카오계정으로 로그인
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup" id="popupApply">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupApply');" class="popup-close"></a>
+			<div class="popup-title">
+				<strong>개인정보 수집 및 이용 동의</strong>
+				<p>이벤트 응모를 위해 개인정보를 입력해주세요.<br/>
+				개인정보는 최초 1회만 수집되며, 이 후에는 카카오 계정 <br/>
+				로그인을 통해 참여가 가능합니다.</p>
+			</div>
+	
+			<div class="popup-content">
+				<div class="form-group">
+					<div class="form-title">이름</div>
+					<div class="form-control">
+						<div class="form-mid">
+							<input type="text" name="" id="" placeholder="" >
+						</div>
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<div class="form-title">휴대전화번호</div>
+					<div class="form-control">
+						<div class="form-mid">
+							<div class="form-btnbox">
+								<input type="text" class="" value="" placeholder="- 제외하고 입력"/>
+								<input type="button" value="인증번호 받기" class="form-btn" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="form-title">인증번호</div>
+					<div class="form-control">
+						<div class="form-mid">
+							<div class="form-btnbox">
+								<input type="text" class="" value="" />
+								<input type="button" value="인증" class="form-btn" />
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group form-line">
+					<div class="form-full form-privacy">
+						<div class="form-control">
+							<div class="form-check">
+								<input type="checkbox" name="chk" id="agreeY">
+								<label for="agreeY">(필수) 개인정보 수집 및 이용에 동의합니다.</label>
+							</div>
+							<a href="javascript:;" class="btn-privacy"><img src="../../Content/img/common/icon_arrow_down.png" alt="" /></a>
+						</div>
+						<div class="form-scroll-box">
+							<p class="tit">개인정보 수집 · 이용 동의 (필수)</p>
+							<p class="tit">개인정보의 수집 · 이용 목적/기간/수집 거부의 권리</p>
+							<p>아래는 ‘카니발 Grand Quiz 이벤트 운영사무국’ (이하 “사무국”)의 캠페인 진행 및 캠페인 관련 안내를 위한 연락 등을 목적으로 사용되는 개인정보에 대한 수집 및 이용 동의 확인 절차입니다.</p>
+							<table>
+								<tr>
+									<th>수집/이용 목적</th>
+									<th>수집 항목</th>
+									<th>보유 기간</th>
+								</tr>
+								<tr>
+									<td><strong>카니발 Grand Quiz<br/> 이벤트 운영</strong></td>
+									<td>필수: 이름, 휴대전화번호</td>
+									<td><strong>(확인필요)</strong></td>
+								</tr>
+							</table>
+							<p>※ 본 동의는 이벤트 신청을 위한 개인정보 수집/이용에 대한 동의로서, 동의를 거부 할 권리가 있으나, 동의하지 않으실 경우 이벤트에 신청하실 수 없습니다.</p>
+							<p>※법령에 따른 개인정보의 수집/이용, 계약의 이행/편의증진을 위한 개인정보 처리위탁 및 개인정보처리와 관련된 일반사항을 서비스의 개인정보처리방침에 따릅니다.</p>
+						</div>
+					</div>
+				</div>
+	
+				<div class="form-group">
+					<div class="form-full form-privacy">
+						<div class="form-control">
+							<div class="form-check">
+								<input type="checkbox" name="chk" id="checkY">
+								<label for="checkY">(필수) 개인정보 위탁에 동의합니다.</label>
+							</div>
+							<a href="javascript:;" class="btn-privacy"><img src="../../Content/img/common/icon_arrow_down.png" alt="" /></a>
+						</div>
+						<div class="form-scroll-box">
+							<p class="tit">개인정보 처리의 위탁</p>
+							<p>카니발 Grand Quiz 이벤트 운영사무국’ (이하 “사무국”) 진행을 위해 참가자의 개인 정보를 외부에 위탁하여 처리하고 있으며, 관계법령에 따라 위탁 계약 시, 개인정보가 안전하게 관리될 수 있도록 규정하고 있습니다. 동 캠페인의 개인정보취급 수탁자와 그 업무의 내용은 아래와 같습니다.</p>
+							<table>
+								<colgroup>
+								<col style="width:40%">
+								<col style="width:auto">
+								</colgroup>
+								<tr>
+									<th>제공받는자</th>
+									<th>업무 내용</th>
+								</tr>
+								<tr>
+									<td>대학내일</td>
+									<td class="text-left"><strong>위탁업무: 카니발 Grand Quiz<br/>이벤트 운영<br/>
+										보유 및 파기기간 : (확인필요)</strong></td>
+								</tr>
+								<tr>
+									<td>가비아</td>
+									<td class="text-left"><strong>위탁업무: 문자 발송<br/>
+										보유 및 파기기간 : (확인필요)</strong></td>
+								</tr>
+							</table>
+							<p>※ 본 동의는 이벤트 신청을 위한 개인정보 처리 위탁에 대한 동의로서, 동의를 거부 할 권리가 있으나, 동의하지 않으실 경우 이벤트에 신청하실 수 없습니다.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-info">
+					※ 본인 명의의 핸드폰 번호를 입력해주세요.<br/>
+					※ 본 이벤트는 이벤트 안내 외 광고성 정보를 발신하지 않습니다.
+				</div>
+
+	
+			</div>
+	
+			<div class="popup-action">
+				<a href="javascript:;">등록</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup popup-quiz" id="popupQuiz1">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupQuiz1');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="popup-text">
+					<span>※ 안내</span>
+					<strong>네 가지 퀴즈를 모두 마쳐야만<br/>
+					응모가 완료됩니다.</strong>
+				</div>
+				
+			</div>
+
+			<div class="popup-action">
+				<a href="javascript:;"><span>퀴즈 풀기</span></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup popup-quiz" id="popupQuiz2">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupQuiz2');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="popup-text">
+					<strong>이미 이벤트에 응모했습니다.</strong>
+					<span>※ 당첨자는 본 이벤트 사이트 공지와 함께 문자로 개별 발표됩니다.</span>
+				</div>
+				
+			</div>
+
+			<div class="popup-action">
+				<a href="javascript:;">확인</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup popup-quiz" id="popupQuiz3">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupQuiz3');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="popup-text">
+					<strong>응모가 완료되었습니다.</strong>
+					<span>※ 당첨자는 본 이벤트 사이트 공지와 함께 문자로 개별 발표됩니다.</span>
+				</div>
+				
+			</div>
+
+			<div class="popup-action">
+				<a href="javascript:;">확인</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup popup-quiz" id="popupQuiz4-1">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupQuiz4-1');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="quiz-title">
+					<strong>Q1. '탑승자 모두에게 여유롭고 프리미엄한 공간’ 편</strong>
+					<p>다음 중 카니발 하이브리드가 받을 수 있는<br/>
+					<span class="highlight">저공해차 혜택이 아닌 것</span>은 무엇일까요?</p>
+				</div>
+
+				<div class="quiz-list">
+					<ul>
+						<li data-istrue="0"><a href="javascript:;">국가보조금 및 지자체 보조금</a></li>
+						<li data-istrue="0"><a href="javascript:;">공영주차장 할인</a></li>
+						<li data-istrue="1"><a href="javascript:;">혼잡통행료 면제</a></li>
+						<li data-istrue="0"><a href="javascript:;">공항주차장 주차요금 할인</a></li>
+						<li data-istrue="0"><a href="javascript:;">공공기관 출입, 전용 주차면 사용</a></li>
+					</ul>
+				</div>
+
+				<div class="quiz-check">
+					<span class="check-point">Check point!</span>
+					<p class="popup-text">카니발 하이브리드는 친환경차 인증은 받지 못했지만,<br/> 저공해차 인증은 받았어요.</p>
+				</div>
+				
+			</div>
+
+			<div class="popup-action black">
+				<a href="javascript:;">다음</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup popup-quiz" id="popupQuiz4-2">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupQuiz4-2');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="quiz-title">
+					<strong>Q2. '카니발 HEV 혜택' 편</strong>
+					<p>다음 중 카니발 하이브리드가 받을 수 있는<br/>
+					<span class="highlight">저공해차 혜택이 아닌 것</span>은 무엇일까요?</p>
+				</div>
+
+				<div class="quiz-list">
+					<ul>
+						<li data-istrue="0"><a href="javascript:;">국가보조금 및 지자체 보조금</a></li>
+						<li data-istrue="0" class="active"><a href="javascript:;">공영주차장 할인</a></li>
+						<li data-istrue="0"><a href="javascript:;">혼잡통행료 면제</a></li>
+						<li data-istrue="0"><a href="javascript:;">공항주차장 주차요금 할인</a></li>
+						<li data-istrue="1"><a href="javascript:;">공공기관 출입, 전용 주차면 사용</a></li>
+					</ul>
+				</div>
+
+				<div class="quiz-check">
+					<span class="check-point">Check point!</span>
+					<p class="popup-text">카니발 하이브리드는 친환경차 인증은 받지 못했지만,<br/> 저공해차 인증은 받았어요.</p>
+				</div>
+				
+			</div>
+
+			<div class="popup-action">
+				<a href="javascript:;">응모 완료하기</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup popup-quiz" id="popupQuiz4-1-fail">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupQuiz4-1-fail');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="quiz-title">
+					<strong>Q1. '탑승자 모두에게 여유롭고 프리미엄한 공간’ 편</strong>
+				</div>
+
+				<div class="popup-text">
+					<strong>아쉽게도 틀렸어요.<br/>
+					아래의 오답노트를 확인하고,<br/>
+					다시 응모해보세요!</strong>
+				</div>
+
+				<div class="quiz-check">
+					<span class="check-point">오답노트</span>
+					<p class="popup-text">
+						카니발 하이브리드는 서울과 인천, 수도권 등 공영주차장 사용 시 50~60% 할인 혜택을 받을 수 있어요.
+					</p>
+					<p class="popup-text">
+						※ 그 외 지역은 조례에 따라 차이 있음
+					</p>
+				</div>
+				
+			</div>
+
+			<div class="popup-action">
+				<a href="javascript:;">다시 풀어보기</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup popup-quiz" id="popupQuiz4-2-fail">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupQuiz4-2-fail');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="quiz-title">
+					<strong>Q2. '카니발 HEV 혜택' 편</strong>
+				</div>
+
+				<div class="popup-text">
+					<strong>아쉽게도 틀렸어요.<br/>
+					아래의 오답노트를 확인하고,<br/>
+					다시 응모해보세요!</strong>
+				</div>
+
+				<div class="quiz-check">
+					<span class="check-point">오답노트</span>
+					<p class="popup-text">
+						카니발 하이브리드는 서울과 인천, 수도권 등 공영주차장 사용 시 50~60% 할인 혜택을 받을 수 있어요.
+					</p>
+					<p class="popup-text">
+						※ 그 외 지역은 조례에 따라 차이 있음
+					</p>
+				</div>
+				
+			</div>
+
+			<div class="popup-action">
+				<a href="javascript:;">다시 풀어보기</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup" id="popupWinners">
+		<div class="popup-wrap">
+			<a href="javascript:popupClose('#popupWinners');" class="popup-close"></a>
+			<div class="popup-content">
+				<div class="winner-title">
+					<strong>카니발 Grand Quiz 이벤트 당첨 발표</strong>
+					<span>※ 당첨자는 문자로 개별 안내드립니다.</span>
+				</div>
+
+				<div class="winner-title">
+					<strong>상품명</strong>
+				</div>
+
+				<div class="winner-list">
+					<p>김*수 · 010-****-1234</p>
+				</div>
+
+
+				<div class="winner-title">
+					<strong>상품명</strong>
+				</div>
+				
+				<div class="winner-list">
+					<ul>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+					</ul>
+				</div>
+
+				<div class="winner-title">
+					<strong>상품명</strong>
+				</div>
+				
+				<div class="winner-list">
+					<ul>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+						<li>김*수 · 010-****-1234</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="../../js/script.js"></script>
+	<script>
+
+		
+		function handleQuizPopup(popupId, successPopupId, failPopupId) {
+			const activeLi = document.querySelector(`${popupId} .quiz-list li.active`);
+			if (activeLi) {
+				popupClose(popupId);
+				const dataIstrueValue = activeLi.getAttribute('data-istrue');
+				if (dataIstrueValue === "1") {
+					popupOpen(successPopupId);
+				} else {
+					popupOpen(failPopupId);
+				}
+			} else {
+				console.log('No active li element found.');
+			}
+		}
+
+		$(function () {
+			//popupOpen('#popupWinners');
+
+			
+			// 퀴즈 - 다음 버튼
+			$('#popupQuiz4-1 > div > div.popup-action.black > a').on("click", function () {
+				handleQuizPopup('#popupQuiz4-1', '#popupQuiz4-2', '#popupQuiz4-1-fail');
+			});
+
+			// 퀴즈 - 응모완료 버튼
+			$('#popupQuiz4-2 > div > div.popup-action > a').on("click", function () {
+				handleQuizPopup('#popupQuiz4-2', '#popupQuiz3', '#popupQuiz4-2-fail');
+			});
+
+			// 오답 - popupQuiz4-1
+			$('#popupQuiz4-1-fail > div > div.popup-action > a').on("click", function () {
+				popupClose('#popupQuiz4-1-fail');
+				popupOpen('#popupQuiz4-1');
+			});
+
+			// 오답 - popupQuiz4-2
+			$('#popupQuiz4-2-fail > div > div.popup-action > a').on("click", function () {
+				popupClose('#popupQuiz4-2-fail');
+				popupOpen('#popupQuiz4-2');
+			});
+		});
+	</script>
+</body>
+</html>
