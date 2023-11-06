@@ -1,0 +1,338 @@
+#wrap {
+	font-family: $font-Pretendard;
+	font-weight: 400;
+	letter-spacing: -0.5px;
+	@include breakpoint(desktop) {
+	//letter-spacing: -1px;
+	}
+}
+
+.wrap {
+  //max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  @include boxSizing(border-box);
+  @extend %clearfix;
+  @include vw(padding-right, 30px);
+  @include vw(padding-left, 30px);
+
+  @include breakpoint(desktop) {
+    max-width: 1100px;
+    @include vw(padding-right, 50px);
+    @include vw(padding-left, 50px);
+  }
+}
+
+.pc {
+  display: none;
+  @include breakpoint(minDesktop) {
+    display: block;
+  }
+}
+
+.mobile {
+  display: block;
+  @include breakpoint(minDesktop) {
+    display: none;
+  }
+}
+
+.text-left {
+  text-align: left !important;
+}
+.text-center {
+  text-align: center !important;
+}
+
+.color-blue {
+  color: #0e3ed0 !important;
+}
+.color-pink {
+  color: #f178ff !important;
+}
+.color-skyblue {
+  color: #007eff !important;
+}
+
+.table-row {
+  table {
+    tr:last-child {
+      th,
+      td {
+        border-bottom: none;
+      }
+    }
+    th,
+    td {
+      color: #1c1c1c;
+      @include rem(padding, 12px 0);
+      text-align: left;
+      @include vw(font-size, 24px);
+      word-break: break-all;
+      @include boxSizing(border-box);
+      @include breakpoint(maxMobile) {
+        font-size: 17px;
+      }
+    }
+    th {
+      width: 30%;
+      vertical-align: top;
+      font-weight: 700;
+      @include rem(padding-left, 20px);
+      @include breakpoint(maxMobile) {
+        width: 135px;
+        @include rem(padding-left, 20px);
+      }
+    }
+  }
+}
+
+.form-checkbox {
+  //@include vw(padding,0 30px);
+  @include breakpoint(maxMobile) {
+    //@include vw(padding,0 100px);
+  }
+  display: flex;
+  align-items: center;
+
+  @include vw(margin-bottom, 10px);
+  label {
+    position: relative;
+    @include vw(padding-left, 28px);
+    cursor: pointer;
+    @include vw(font-size, 25px);
+    @include breakpoint(desktop) {
+      @include vw(font-size, 32px);
+      line-height:1.5;
+    }
+    input[type="checkbox"] {
+      position: absolute;
+
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+
+      &:checked ~ .checkmark {
+        background-color: transparent;
+      }
+
+      &:checked ~ .checkmark:after {
+        display: block;
+      }
+    }
+
+    .checkmark {
+      position: absolute;
+      @include vw(top, 6px);
+      @include breakpoint(desktop) {
+        @include vw(top, 12px);
+        border-width:2px;
+      }
+      left: 0;
+      border: 1px solid #000;
+      @include vw(width, 18px);
+      @include vw(height, 18px);
+      background-color: transparent;
+      &:after {
+        content: "";
+        position: absolute;
+        @include vw(left, 2px);
+        @include vw(top, 2px);
+        background-color: #6933e6;
+        @include vw(width, 14px);
+        @include vw(height, 14px);
+        display: none;
+        @include breakpoint(maxMobile) {
+          @include vw(width, 14px);
+          @include vw(height, 14px);
+        }
+      }
+    }
+  }
+}
+
+.fake-check {
+  label {
+      position:relative;
+      display: block;
+      width:100%;
+      @include boxSizing(border-box);
+      background: url('../../Content/img/common/icon_check.png') no-repeat left top;
+     @include vw(background-size, 23px 23px);
+      @include vw(padding-left, 36px);
+      cursor: pointer;font-weight:500;
+      @include vw(font-size, 16px);
+	  line-height:1.5;
+      color: #583737;
+
+      span{
+        color: #92776E;
+        @include vw(font-size, 15px);
+        font-style: normal;
+        font-weight: 500;
+      }
+  }
+  input {
+      @extend .sr-only;
+      &:checked + label { 
+        background-image: url('../../Content/img/common/icon_checked.png'); 
+		
+      }
+  }
+}
+
+.fake-radio {
+  label {
+      display: inline-block;
+      @include vw(width, 30px);
+      @include vw(height, 30px);
+      background: url('../../Content/img/popup/radio_check.png') no-repeat center center;
+      cursor: pointer;font-weight:400;
+      background-size:cover;
+      @include breakpoint(maxMobile){
+      }
+  }
+  input {
+      @extend .sr-only;
+      &:checked + label { background-image: url('../../Content/img/popup/radio_checked.png'); }
+  }
+}
+
+
+
+
+.form-select {
+  position: relative;
+  width: 85%;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    display: block;
+    @include vw(width, 20px);
+    @include vw(height, 20px);
+    @include vw(margin-top, -22px);
+    border-width: 0;
+    border-style: solid;
+    border-color: #00c26c;
+    transform: rotate(45deg);
+    right: 3%;
+    border-bottom-width: 4px;
+    border-right-width: 4px;
+  }
+
+  select {
+    width: 100%;
+    @include vw(padding, 10px 10px);
+    @include vw(font-size, 20px);
+    border: none;
+    border-bottom: 1px solid #00c26c;
+    -webkit-appearance: none;
+    appearance: none;
+    color: #161616;
+    font-weight: 700;
+    @include boxSizing(border-box);
+    &::-ms-expand {
+      display: none;
+    }
+    &::placeholder {
+      color: #161616;
+    }
+    @include breakpoint(maxMobile) {
+      font-size: 16px;
+      border-width: 1px;
+    }
+  }
+}
+
+.slide-container {
+  .slick-dots {
+    width: 100%;
+    @include rem(margin-top, 20px);
+    text-align: center;
+    li {
+      display: inline-block;
+      @include rem(margin, 0 6px);
+      button {
+        cursor: pointer;
+        text-indent: -10000em;
+        border: 0;
+        border-radius: 50%;
+        @include rem(width, 30px);
+        @include rem(height, 30px);
+        background-color: #fff;
+        @include breakpoint(desktop) {
+          @include rem(width, 15px);
+          @include rem(height, 15px);
+        }
+      }
+      &.slick-active {
+        button {
+          border-radius: 15px;
+          @include rem(width, 60px);
+          background-color: #000;
+        }
+      }
+    }
+  }
+
+  .slick-arrow {
+    position: absolute;
+    @include vw(top, 10px);
+    @include breakpoint(desktop) {
+      @include vw(top, 24px);
+    }
+    z-index: 10;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    outline: none;
+    text-indent: -9999px;
+    display: block;
+    border-width: 0;
+    border-style: solid;
+    cursor: pointer;
+    box-sizing: border-box;
+    &.slick-prev {
+      left: 0;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        display: block;
+        @include vw(width, 24px);
+        @include vw(height, 24px);
+        @include vw(margin-top, -12px);
+        border-width: 0;
+        border-style: solid;
+        border-color: #00c26c;
+        transform: rotate(45deg);
+        @include vw(left, 135px);
+        border-bottom-width: 4px;
+        border-left-width: 4px;
+      }
+    }
+
+    &.slick-next {
+      right: 0;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        display: block;
+        @include vw(width, 24px);
+        @include vw(height, 24px);
+        @include vw(margin-top, -12px);
+        border-width: 0;
+        border-style: solid;
+        border-color: #00c26c;
+        transform: rotate(45deg);
+        @include vw(right, 135px);
+        border-top-width: 4px;
+        border-right-width: 4px;
+      }
+    }
+  }
+}

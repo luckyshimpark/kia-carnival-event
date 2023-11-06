@@ -1,0 +1,745 @@
+%scrollBar{
+	/* width */
+	&::-webkit-scrollbar {
+		width: 5px;
+	}
+	
+	/* Track */
+	&::-webkit-scrollbar-track {
+		background: #fff;
+		border-radius: 15px;
+	}
+	
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: #888;
+		border-radius: 15px;
+	}
+	
+	/* Handle on hover */
+	&::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+}
+
+.dim {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup-dim {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1002;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1003;
+
+  font-family: $font-Pretendard;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  &.show {
+    display: flex;
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &-wrap {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+
+    @include breakpoint(maxMobile) {
+      width: auto;
+      max-width: auto;
+    }
+  }
+
+  &-content {
+    //background-color:#fff;
+    @include boxSizing(border-box);
+  }
+
+  &-close {
+    @include close(40px, 40px, 2px, #08141E);
+    top: 10px;
+    right: 10px;
+    @include breakpoint(minDesktop) {
+      @include close(80px, 80px, 3px, #08141E);
+      top: 5px;
+      right: 0px;
+    }
+
+    z-index: 10002;
+    &.white {
+      &:before,
+      &:after {
+        background-color: #fff;
+      }
+    }
+  }
+
+  &.wide {
+    display: none;
+    position: absolute;
+    right: auto;
+    left: 50%;
+    top: 0;
+    bottom: auto;
+    z-index: 300;
+    @include vw(width, 640px);
+    //max-width: 600px;
+    margin: 0 auto;
+    font-family: $font-spoqa;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    z-index: 1003;
+    @include vw(border-radius, 40px);
+
+    @include breakpoint(minDesktop) {
+      width: auto;
+      max-width: 100%;
+      //border-radius: 38px;
+    }
+  }
+
+  .popup-wrap {
+    @include boxSizing(border-box);
+    // width: calc(100% - 40px);
+    // margin: 0 auto;
+
+    background-color: #fff;
+    //@include vw(border-width, 10px);
+    //box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.5);
+    @include vw(border-radius, 20px);
+    @include vw(padding, 0 40px 60px);
+    @include vw(width, 640px);
+    @include breakpoint(desktop) {
+      //@include vw(width, 640px);
+      //@include vw(padding, 0 60px 0);
+    }
+
+    .popup-title {
+		@include vw(padding,58px 0 0);
+		text-align:center;
+		strong{
+			color: #08141E;
+			font-weight: 700;
+			@include vw(font-size, 40px);
+			line-height: 1;
+			display:block;
+			
+		}
+
+		p{
+			@include vw(margin-top,40px);
+			@include vw(margin-bottom,40px);
+			color:#08141E;
+			@include vw(font-size, 24px);
+			line-height: 120%; font-weight:500;
+		}
+    }
+
+	.popup-content{
+		@include boxSizing(border-box);
+		@extend %scrollBar;
+
+		.popup-text{
+			color:#08141E;
+			@include vw(font-size, 24px);
+			font-style: normal;
+			font-weight: 500;
+			line-height: 120%; /* 28.8px */
+			@include vw(letter-spacing, -0.72px);
+			text-align:center;
+			span{
+				display:block;@include vw(font-size, 28px);line-height: 120%;
+				&+strong{@include vw(margin-top, 10px);}
+			}
+			strong{
+				line-height: 120%; display:block;@include vw(font-size, 36px);font-weight:700;
+				&+span{@include vw(margin-top, 10px);}
+			}
+			
+		}
+		.form-info{
+			color:#08141E;
+			@include vw(font-size, 20px);
+			font-style: normal;
+			font-weight: 500;
+			line-height: 120%; /* 24px */
+			@include vw(letter-spacing, -0.6px);
+		}
+
+		.form-group{
+
+			&.form-line{
+				@include vw(margin-top, 40px);
+				@include vw(padding-top, 40px);
+				border-top:2px solid #B3B3B3;
+				@include vw(border-width, 2px);
+			}
+
+			/* input 기본 스타일 초기화 */
+			input { 
+				-webkit-appearance : none;
+				-moz-appearance:none;
+				appearance:none;
+			}
+
+			/* input type number 에서 화살표 제거 */
+			input[type=number]::-webkit-inner-spin-button,
+			input[type=number]::-webkit-out-spin-button {
+				-webkit-appearance: none;
+				-moz-appearance:none;
+				appearance:none;
+			}
+
+			/* select box 스타일 초기화 */
+			select {
+				-webkit-appearance: none;
+				-moz-appearance:none;
+				appearance:none;
+			}
+
+			/* input number의 외형을 텍스트필드로 바꿔줘야한다 */
+			input[type=number] {
+				-moz-appearance:textfield; 
+			}
+
+			.text-right{text-align:right !important;}
+
+			display:flex;
+			flex-wrap: wrap;
+			@include vw(margin-bottom, 20px);
+
+			.form-full{width:100% !important;}
+			.form-mid{
+				@include vw(width,420px);
+				@include breakpoint(maxMobile){
+					@include vw(width,420px);
+				}
+			}
+			.form-half{
+				@include vw(width,204px);
+				@include vw(margin-left,10px);
+				&:first-child{margin-left:0;}
+				@include breakpoint(maxMobile){
+					@include vw(width,208px);
+				}
+			}
+
+			.form-title{
+				width:25%;
+				@include vw(height, 60px);
+				display:flex;
+				align-items: center;
+				color: #08141E;
+				@include vw(font-size, 24px);
+				font-weight:700;
+				@include breakpoint(maxMobile){
+					@include vw(width, 140px);
+				}
+			}
+
+			.form-control{
+				display:flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			input[type='text'], input[type='number'], select{
+				@include boxSizing(border-box);
+				@include vw(padding, 15px);
+				@include vw(height, 60px);
+				@include vw(font-size, 25px);
+				width: 100%;
+				font-weight: 400;
+				color: #666;
+				//border: 1px solid #CCCCCC;
+				border:0;
+				@include vw(border-radius, 10px);
+				background: #F3F3F4;
+
+				&::placeholder{
+					@include vw(font-size, 25px);
+					color: #AAAAAA;
+				}
+
+				&:disabled {
+					background: #AAAAAA;
+					color:#fff;
+					text-align:center;
+
+					&::placeholder{
+						color: #fff;
+					}
+				}
+			}
+
+			.form-select{
+				position:relative;
+				select{
+					@include vw(padding,0 15px);
+					line-height:1;
+					vertical-align:top;
+				}
+				&:after {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 50%;
+					@include vw(right, 15px);
+					@include vw(width, 18px);
+					@include vw(height, 10px);
+					transform: translateY(-50%);
+					background: url(//img.eduwill.net/eduwill/img/common/icon/icon_arrow.png) 0 0 no-repeat;
+					background-size: cover;
+					z-index: 1;
+				}
+			}
+
+			.form-textarea{
+				textarea {
+					@include vw(padding, 5px 10px);
+					@include vw(height, 160px);
+					@include vw(font-size,25px);
+					width: 100%;
+					font-weight: 700;
+					color: #000;
+					border: 1px solid #dbdbdb;
+					background: #F9F9F9;
+					resize: none;
+					letter-spacing:-1px;
+					&::placeholder{
+						@include vw(font-size, 25px);
+						color: #ccc;
+						font-weight:400;
+						letter-spacing:-1px;
+					}
+				}
+			}
+
+			.form-check {
+				input[type=checkbox] { display:none; }
+
+				input[type=checkbox] + label { 
+					display: inline-block; 
+					cursor: pointer; 
+					background: url(../../Content/img/common/icon_check_off.png) 0 0 no-repeat;
+					@include vw(background-size,29px 29px);
+					@include vw(line-height, 32px);
+					@include vw(padding-left, 35px);
+					color:#08141E;
+					@include vw(font-size, 24px);
+					font-weight:700;
+
+					@include breakpoint(maxMobile){
+						letter-spacing:-1px;
+						@include vw(line-height, 29px);
+					}
+
+				}
+
+				input[type=checkbox]:checked + label { background-image: url(../../Content/img/common/icon_check_on.png); }
+			}
+
+			.form-radio {
+				display:inline-block;@include vw(margin-left,50px);
+				input[type=radio] { display:none; }
+
+				input[type=radio] + label { 
+					display: inline-block; 
+					cursor: pointer; 
+					background: url(//img.eduwill.net/eduwill/img/common/icon/icon_radio_off.png) 0 0 no-repeat;
+					background-size:contain;
+					@include vw(line-height, 26px);
+					@include vw(padding-left, 36px);
+					color:#000;
+					@include vw(font-size, 25px);
+				
+
+					@include breakpoint(maxMobile){
+						letter-spacing:-1px;
+						@include vw(line-height, 25px);
+					}
+
+				}
+
+				input[type=radio]:checked + label { background-image: url(//img.eduwill.net/eduwill/img/common/icon/icon_radio_on.png); }
+			}
+
+			.form-relative{
+				position:relative;
+				@extend %clearfix;
+			}
+
+			.form-btnbox{
+				font-size:0;
+				input[type=text]{
+					@include vw(width,220px);@include vw(margin-right,20px);
+					&::placeholder{
+						color:#B3B3B3;
+						@include vw(font-size, 24px);
+						font-weight:500;
+					}
+				}
+			}
+
+			.form-btn{
+				display:inline-block;
+				@include vw(width, 180px);
+				height: 100%;
+				color: #fff;
+				font-weight: 400;
+				@include vw(font-size, 24px);
+				@include vw(line-height, 60px);
+				background: #08141E;
+				border:none;
+				padding:0;
+				margin:0;
+				@include vw(border-radius, 10px);
+				cursor:pointer;
+			}
+
+
+			.form-filebox{
+				position:relative;
+				@extend %clearfix;
+				input[type="file"] {
+					position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;
+				}
+				input {
+					outline: none;
+					&.upload-name {
+						width: 100%;
+						@include vw(padding, 15px);
+						padding-right:30% !important;
+						@include vw(height, 60px);
+						@include vw(font-size, 25px);
+						font-weight: 400;
+						color: #666;
+						border: 1px solid #dbdbdb;
+						background: #fff;
+						border-radius:5px;
+						box-sizing: border-box;
+					}
+				}
+				label {
+					cursor:pointer;
+					text-align: center;
+				}
+			}
+
+			.btn-file{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 28%;
+				height: 100%;
+				color: #fff;
+				font-weight: 400;
+				@include vw(font-size, 25px);
+				@include vw(line-height, 60px);
+				background: #aaa;
+				border:none;
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+
+			
+
+			.btn-privacy{
+				display:inline-block;
+				color: #CCCCCC;
+				text-decoration-line: underline;
+				font-weight: 400;
+				@include vw(font-size, 20px);
+				margin-left:auto;
+				@include vw(width, 27px);
+				img{
+					vertical-align:middle;
+				}
+				&.open{
+					img{
+						transform: rotate(-180deg);
+					}
+				}
+			}
+
+			.form-scroll-box {
+				// @include vw(margin-top, 10px);
+				// @include vw(padding, 20px);
+				// @include vw(height, 160px);
+				// overflow-y: scroll;
+				// word-break: keep-all;
+				// background: #f8f8f8;
+				// @extend %scrollBar;
+				// @include vw(font-size, 20px);
+				// @include vw(line-height, 28px);
+				// color:#666;
+				// @include boxSizing(border-box);
+				// // for firefox
+				// scrollbar-width: thin;
+				// scrollbar-color: #888 #fff;
+				table{
+					border-bottom:1px solid #B3B3B3;@include vw(margin-top, 20px);
+					th,td{color:#08141E;font-weight:700;@include vw(font-size, 20px);@include vw(padding, 26px 0);text-align:center;}
+					th{background-color:#F3F3F4;}
+					td{
+						@include vw(font-size, 18px);
+						strong{
+							border-bottom:1px solid #08141E;@include vw(font-size, 20px);
+						}
+					}
+				}
+				p{
+					color:#08141E;
+					font-weight:500;
+					line-height:120%;
+					@include vw(margin-top, 20px);
+					@include vw(font-size, 20px);
+					&.tit{
+						@include vw(font-size, 24px);
+					}
+
+				}
+
+			}
+
+
+
+			.form-privacy{
+				position:relative;
+				.form-control{
+					flex-wrap:wrap;
+				}
+				.form-scroll-box {
+					display:none;
+				}
+
+				.form-text{
+					@include vw(padding-left,35px);
+				}
+			}
+
+			.form-text{
+				color: #AAAAAA;
+				font-weight: 400;
+				@include vw(font-size, 20px);
+				@include vw(line-height, 28px);
+			}
+		}
+	}
+
+	.popup-action{
+		background: #FFCC25;
+		@include vw(border-radius, 10px);
+		@include vw(margin-top, 80px);
+		&.black{
+			background: #08141E;
+			a{color:#fff;}
+		}
+		a{
+			display:block;
+			color: #000000;
+			text-align: center;
+			@include vw(font-size,28px);
+			font-weight:700;
+			line-height:1;
+			letter-spacing: -1px;
+			@include vw(padding, 24px 0px 22px);
+			span{
+				display:inline-block;
+				@include vw(padding,0 40px);
+				@include arrow(right, 10px, 10px, 3px, #08141E);
+			}
+		}
+	}
+  }
+}
+
+#popupLogin{
+	.popup-wrap{
+		@include vw(padding-bottom, 80px);
+	}
+	.popup-text{@include vw(margin-top, 100px);}
+	.btn-kakao{
+		text-align:center;@include vw(margin-top, 92px);
+		a{
+			@include vw(border-radius, 10px);
+			background: #FFE700;
+			color: #392020;
+			@include vw(font-size,28px);
+			font-style: normal;
+			font-weight: 600;
+			line-height: normal;
+			@include vw(letter-spacing,-0.84px);
+			//@include vw(width,480px);
+			@include vw(padding,12px 50px);
+			@include boxSizing(border-box);
+			display:inline-block;
+			.icon{
+				@include vw(width,43px);
+				display:inline-block;
+				border-right:2px solid #392020;
+				@include vw(padding-right,34px);
+				@include vw(margin-right,34px);
+
+			}
+
+			@include breakpoint(desktop) {
+				
+			}
+		}
+	}
+}
+
+#popupApply{
+	.popup-action{
+		@include vw(margin-top, 40px);
+	}
+}
+
+.popup-quiz{
+	.popup-content{
+		@include vw(padding-top,120px);
+		.quiz-title{
+			text-align:center;
+			strong{color:#08141E;@include vw(font-size,28px);font-weight:700;line-height:120%;
+				@include vw(letter-spacing, -0.84px);}
+			p{
+				@include vw(margin-top, 50px);
+				color:#08141E;@include vw(font-size,28px);font-weight:500;line-height:120%;
+				@include vw(letter-spacing, -0.84px);
+				span{color:#EA8F08;font-weight:700;text-decoration: underline;}
+			}
+		}
+
+		.quiz-list{
+			@include vw(margin-top, 60px);
+			ul{
+				li{
+					@include vw(margin-top, 10px);
+					&:first-child{margin-top:0;}
+					@include vw(border-radius, 10px);
+					background-color:#fff;
+					border: 2px solid #B3B3B3;
+					@include vw(border-width,2px);
+					display: flex;
+					width:100%;
+					@include vw(padding, 18px 0px 16px 0px);
+					justify-content: center;
+					align-items: center;
+					@include breakpoint(desktop) {
+						@include vw(width, 560px);
+					}
+
+					a{color:#08141E;@include vw(font-size,28px);font-weight:500;line-height:1;}
+
+					&.active{
+						background-color:#08141E;
+						border-color:#08141E;
+						a{color:#fff;}
+					}
+				}
+			}
+		}
+
+		.quiz-check{
+			text-align:center;@include vw(margin-top,60px);
+			.check-point{display:inline-block;color:#08141E;@include vw(font-size,24px);font-weight:500;
+				@include vw(padding, 10px 20px);@include vw(border-radius, 94px);line-height:1;
+				border: 2px solid #08141E;@include vw(border-width, 2px);@include vw(margin-bottom,15px);
+			}
+
+			.popup-text + .popup-text{@include vw(margin-top,15px);}
+		}
+
+	}
+}
+
+#popupQuiz4, #popupQuiz5{
+	.popup-action{
+		@include vw(margin-top, 60px);
+	}
+}
+
+#popupQuiz4{
+	.quiz-list{
+		ul{
+			li{
+				&:hover{
+					background-color:#08141E;
+					border-color:#08141E;
+					a{color:#fff;}
+				}
+			}
+		}
+	}
+}
+
+#popupQuiz6{
+	.quiz-title + .popup-text{@include vw(margin-top, 60px);}
+}
+
+#popupWinners{
+	.popup-content{
+		@include vw(padding-top,120px);
+		.winner-title{
+			@include vw(margin-top, 60px);
+			&:first-child{margin-top:0;}
+			text-align:center;
+			strong{display:block;color:#08141E;@include vw(font-size, 28px);font-weight:700;@include vw(letter-spacing, -0.84px);}
+			span{display:block;color:#08141E;@include vw(margin-top, 10px);@include vw(font-size, 24px);font-weight:500;@include vw(letter-spacing, -0.72px);}
+		}
+
+		.winner-list{
+			@include vw(margin-top,10px);
+
+			p{
+				text-align:center;line-height:1;
+				color:#08141E;@include vw(font-size, 24px);font-weight:500;@include vw(letter-spacing, -0.72px);
+			}
+
+			ul{
+				display:flex;
+				flex-wrap:wrap;
+				justify-content: center;
+				li{
+					width:50%;text-align:center;@include boxSizing(border-box);
+					color:#08141E;@include vw(font-size, 24px);font-weight:500;@include vw(letter-spacing, -0.72px);
+				}
+			}
+		}
+	}
+}
+
+

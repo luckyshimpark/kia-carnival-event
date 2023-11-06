@@ -1,0 +1,105 @@
+#contents {
+	.section-privacy{
+		background-color:#F3F3F4;
+		@include vw(padding-top,120px);
+		@include vw(padding-bottom,120px);
+
+		.subject{
+			color: #08141E;
+			text-align: center;
+			@include vw(font-size, 50px);
+			line-height: 160%;
+            font-weight:700;
+			
+		}
+
+		.privacy-group{
+			@include vw(margin-top,30px);
+
+			p{
+				color: #08141E;
+				font-weight: 500;
+				line-height: 120%;
+				text-align:left;
+				@include vw(font-size, 24px);
+				@include breakpoint(maxMobile){
+					@include vw(font-size, 14px);
+					
+				}
+			}
+
+			dl{
+				text-align:left;
+				//@include vw(padding-top, 80px);
+				@include vw(margin-top, 80px);
+				@include breakpoint(maxMobile){
+					//@include vw(padding-top, 40px);
+					@include vw(margin-top, 40px);
+				}
+				dt,dd{
+					@include vw(font-size, 26px);
+					color: #08141E;font-weight: 500;line-height: 160%;
+					@include breakpoint(maxMobile){
+						@include vw(font-size, 16px);
+						letter-spacing: -0.02em;
+					}
+				}
+
+				dt{
+					color: #08141E;
+					@include vw(margin-bottom, 32px);
+					font-weight:700;
+					@include breakpoint(maxMobile){
+						@include vw(margin-bottom, 16px);
+					}
+				}
+			}
+
+			ul{
+				li{
+					@include vw(padding-left, 28px);
+					@include vw(text-indent, -28px);
+					@include breakpoint(maxMobile){
+						@include vw(padding-left, 14px);
+						@include vw(text-indent, -14px);
+					}
+				}
+			}
+
+			table{
+				width:100%;
+				@include vw(margin, 32px 0 48px);
+				border-bottom:1px solid #B3B3B3;
+				@include breakpoint(desktop){
+					width:50%;
+					@include vw(margin, 16px 0 24px);
+				}
+				tr{
+					
+					th, td{
+						@include vw(padding, 20px 0);
+                        @include vw(font-size, 20px);text-align:center;color: #08141E;
+						font-weight:500;
+						strong{
+							border-bottom:1px solid #08141E;font-weight:700;
+							@include vw(font-size, 24px);
+							@include breakpoint(maxMobile){
+								@include vw(font-size, 14px);
+							}
+						}
+						@include breakpoint(maxMobile){
+							@include vw(padding, 10px 0);
+							@include vw(font-size, 12px);
+						}
+					}
+					th{
+						background: rgba(8, 20, 30, 0.10);font-weight:700;
+                        color:#08141E;
+					}
+                    
+				}
+			}
+
+		}
+	}
+}
