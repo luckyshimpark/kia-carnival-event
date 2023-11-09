@@ -633,11 +633,11 @@
 		@include vw(padding-top,120px);
 		.quiz-title{
 			text-align:center;
-			strong{color:#08141E;@include vw(font-size,28px);font-weight:700;line-height:120%;
+			strong{color:#08141E;@include vw(font-size,27px);font-weight:700;line-height:120%;
 				@include vw(letter-spacing, -0.84px);}
 			p{
 				@include vw(margin-top, 50px);
-				color:#08141E;@include vw(font-size,28px);font-weight:500;line-height:120%;
+				color:#08141E;@include vw(font-size,27px);font-weight:500;line-height:120%;
 				@include vw(letter-spacing, -0.84px);
 				span{color:#EA8F08;font-weight:700;text-decoration: underline;}
 			}
@@ -655,14 +655,16 @@
 					@include vw(border-width,2px);
 					display: flex;
 					width:100%;
-					@include vw(padding, 18px 0px 16px 0px);
+					@include vw(padding, 18px 20px 16px);
 					justify-content: center;
 					align-items: center;
+					
+					@include boxSizing(border-box);
 					@include breakpoint(desktop) {
 						@include vw(width, 560px);
 					}
 
-					a{color:#08141E;@include vw(font-size,28px);font-weight:500;line-height:1;}
+					a{color:#08141E;@include vw(font-size,27px);font-weight:500;line-height:120%;}
 
 					&.active{
 						background-color:#08141E;
@@ -678,6 +680,8 @@
 			.check-point{display:inline-block;color:#08141E;@include vw(font-size,24px);font-weight:500;
 				@include vw(padding, 10px 20px);@include vw(border-radius, 94px);line-height:1;
 				border: 2px solid #08141E;@include vw(border-width, 2px);@include vw(margin-bottom,15px);
+
+				& + .popup-text{@include vw(font-size,23px);}
 			}
 
 			.popup-text + .popup-text{@include vw(margin-top,15px);}

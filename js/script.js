@@ -42,11 +42,11 @@ function addEvent() {
 
   termsClickEvent();
 
-//   $("html").click(function (e) {
-//     if ($(e.target).parents(".popup-wrap").length < 1) {
-//       $(".popup").hide();
-//     }
-//   });
+  // $("html").click(function (e) {
+  //   if ($(e.target).parents(".popup-wrap").length < 1) {
+  //     $(".popup").hide();
+  //   }
+  // });
 
   $(".btn-sns").on("click", snsEvent);
 }
