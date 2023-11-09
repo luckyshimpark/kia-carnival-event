@@ -288,12 +288,22 @@
       a{
         display:block;
         background-color:#FFCC25;
+		border:1px solid #FFCC25;
         color:#08141E;
         @include vw(padding,26px 0);
         @include vw(font-size,40px);
         @include vw(border-radius,10px);
         font-weight:800;
         line-height:1;
+
+		&.btn-link{
+			background-color:transparent;
+			border-color:#fff;
+			color:#fff;
+			font-weight:600;
+		}
+
+		&+a{@include vw(margin-top,30px);}
       }
     }
 

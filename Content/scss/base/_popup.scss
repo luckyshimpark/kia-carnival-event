@@ -560,14 +560,11 @@
 	}
 
 	.popup-action{
-		background: #FFCC25;
-		@include vw(border-radius, 10px);
 		@include vw(margin-top, 80px);
-		&.black{
-			background: #08141E;
-			a{color:#fff;}
-		}
 		a{
+			background: #FFCC25;
+			border:1px solid #FFCC25;
+			@include vw(border-radius, 10px);
 			display:block;
 			color: #000000;
 			text-align: center;
@@ -581,7 +578,24 @@
 				@include vw(padding,0 40px);
 				@include arrow(right, 10px, 10px, 3px, #08141E);
 			}
+
+			&.black{
+				background: #08141E;
+				border-color:#08141E;
+				color:#fff;
+			}
+
+			&.white{
+				background:#fff;
+				border-color:#08141E;
+				color:#08141E;
+				
+			}
+
+			&+a{@include vw(margin-top,20px);}
 		}
+
+		
 	}
   }
 }
@@ -658,7 +672,7 @@
 					@include vw(padding, 18px 20px 16px);
 					justify-content: center;
 					align-items: center;
-					
+					text-align:center;
 					@include boxSizing(border-box);
 					@include breakpoint(desktop) {
 						@include vw(width, 560px);
@@ -666,7 +680,7 @@
 
 					a{color:#08141E;@include vw(font-size,27px);font-weight:500;line-height:120%;}
 
-					&.active{
+					&.active, &:hover{
 						background-color:#08141E;
 						border-color:#08141E;
 						a{color:#fff;}
@@ -696,14 +710,22 @@
 	}
 }
 
-#popupQuiz4{
+#popupQuiz5{
 	.quiz-list{
 		ul{
 			li{
 				&:hover{
-					background-color:#08141E;
-					border-color:#08141E;
-					a{color:#fff;}
+					background-color:#fff;
+					border-color:#B3B3B3;
+					a{color:#08141E;}
+				}
+
+				&.active{
+					&:hover{
+						background-color:#08141E;
+						border-color:#08141E;
+						a{color:#fff;}
+					}
 				}
 			}
 		}
