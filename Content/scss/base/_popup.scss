@@ -653,6 +653,7 @@
 				@include vw(margin-top, 50px);
 				color:#08141E;@include vw(font-size,27px);font-weight:500;line-height:120%;
 				@include vw(letter-spacing, -0.84px);
+				word-break:keep-all;
 				span{color:#EA8F08;font-weight:700;text-decoration: underline;}
 			}
 		}

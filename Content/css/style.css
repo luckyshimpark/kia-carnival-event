@@ -2078,6 +2078,7 @@ q:before, q:after {
   font-weight: 500;
   line-height: 120%;
   letter-spacing: -0.1166666667vw;
+  word-break: keep-all;
 }
 @media screen and (min-width: 720px) {
   .popup-quiz .popup-content .quiz-title p {
