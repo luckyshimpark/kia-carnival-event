@@ -12,6 +12,7 @@
 		justify-content: center;
 		width:100%;
 		border-top:1px solid rgba(255, 255, 255, 0.30);
+    background-color:#08141E;
 		a{
 			position:relative;
 			color:#fff;
@@ -41,7 +42,7 @@
 	}
 
 	.sns-menu{
-		//display:none;
+		display:none;
 		position:absolute;
 		left:0;
 		width:100%;
@@ -53,7 +54,7 @@
 			li{
 				@include vw(width, 100px);
 				@include vw(margin,0 15px);
-				opacity:0;
+				//opacity:0;
 				transition: all 0.5s ease;
 				
 				a{
@@ -66,10 +67,10 @@
 
 	&.active{
 		.sns-menu{
-			//display:block;
+			display:block;
 			ul{
 				li{
-					opacity:1;
+				//	opacity:1;
 					transition: all 0.5s ease;
 					&:nth-child(1){@include transitionDelay(.1s);}
 					&:nth-child(2){@include transitionDelay(.2s);}
@@ -93,6 +94,7 @@
 			display:block;
 			width:auto;
 			border-top:none;
+      background-color:transparent;
 			a{
 				display:flex;
 				align-items: center;
@@ -203,7 +205,8 @@
 		background-size: cover;
     @include breakpoint(desktop) {
       background-image: url('../../Content/img/pc/visual.jpg');
-      @include vw(max-width, 1920px);
+      background-position:50% 100%;
+      //@include vw(max-width, 1920px);
       @include vw(height, 1080px);
       margin:0 auto;
     }

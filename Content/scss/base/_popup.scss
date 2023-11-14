@@ -179,6 +179,7 @@
 			line-height: 120%; /* 28.8px */
 			@include vw(letter-spacing, -0.72px);
 			text-align:center;
+			word-break: keep-all;
 			span{
 				display:block;@include vw(font-size, 28px);line-height: 120%;
 				&+strong{@include vw(margin-top, 10px);}
@@ -647,11 +648,11 @@
 		@include vw(padding-top,120px);
 		.quiz-title{
 			text-align:center;
-			strong{color:#08141E;@include vw(font-size,27px);font-weight:700;line-height:120%;
+			strong{color:#08141E;@include vw(font-size,26px);font-weight:700;line-height:120%;
 				@include vw(letter-spacing, -0.84px);}
 			p{
 				@include vw(margin-top, 50px);
-				color:#08141E;@include vw(font-size,27px);font-weight:500;line-height:120%;
+				color:#08141E;@include vw(font-size,26px);font-weight:500;line-height:120%;
 				@include vw(letter-spacing, -0.84px);
 				word-break:keep-all;
 				span{color:#EA8F08;font-weight:700;text-decoration: underline;}
